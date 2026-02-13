@@ -8,6 +8,8 @@ app_license = "mit"
 # Apps
 # ------------------
 
+after_migrate = "izzyagent.migrate.after_migration"
+
 # required_apps = []
 
 # Each item in the list will be shown as an app in the apps page
@@ -145,8 +147,27 @@ app_license = "mit"
 # 	}
 # }
 
+doc_events = {
+    "Sales Invoice": {
+        "validate": "izzyagent.api.add_si_reference_to_subscription_plan"
+    }
+}
+
+
 # Scheduled Tasks
 # ---------------
+
+# 1st day of every month at 12:30 AM
+# 30 00 1 * *
+
+scheduler_events = {
+    "cron": {
+        "45 23 30 4,6,9,11 *": [ "izzyagent.api.create_subscription_plan_invoice_and_set_plan_inactive_if_end_date_reached_for_thirtyth_day" ], #30th April, June, Sept, Nov At 23:45 PM
+        "45 23 31 1,3,5,7,8,10,12 *": [ "izzyagent.api.create_subscription_plan_invoice_and_set_plan_inactive_if_end_date_reached_for_thirty_first_day" ],  #31st Jan, Mar, May, July, Aug, Oct, Dec At 23:45 PM
+        "45 23 28,29 2 *": [ "izzyagent.api.create_subscription_plan_invoice_and_set_plan_inactive_if_end_date_reached_for_february_last_day" ],  #28th/29th Feb At 23:45 PM
+        # "*/5 * * * *": [ "izzyagent.api.create_subscription_plan_invoice" ] # for testing purpose, every 5 mins
+    }
+}
 
 # scheduler_events = {
 # 	"all": [

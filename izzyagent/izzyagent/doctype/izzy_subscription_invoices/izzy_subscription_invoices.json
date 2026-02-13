@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-01-30 20:27:59.038762",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sales_invoice",
+  "column_break_kjfa",
+  "si_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "sales_invoice",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Sales Invoice"
+  },
+  {
+   "fieldname": "si_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "SI Date"
+  },
+  {
+   "fieldname": "column_break_kjfa",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-01-30 20:29:08.581794",
+ "modified_by": "Administrator",
+ "module": "Izzyagent",
+ "name": "Izzy Subscription Invoices",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
